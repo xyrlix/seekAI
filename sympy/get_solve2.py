@@ -2,7 +2,7 @@
 """
 Created on Fri Oct  3 12:29:23 2025
 
-@author: uding
+@author: xyrlix
 """
 
 from sympy import *
@@ -28,7 +28,19 @@ print("方程 f(x)=0 的根：", solve(f, x))
 df = diff(f, x)
 print('求解 f\'(x)=0 , 得到：', solve(df, x))
 
+print('求解 f\'(x) > 0 , 递增区间：', solve(df > 0, x))
+print('求解 f\'(x) < 0 , 递减区间：', solve(df < 0, x))
+
 # 求极值
 extremes = [(point, f.subs(x, point)) for point in solve(df, x)]
+max_value = extremes[0][0]
+min_value = extremes[0][0]
 for point, value in extremes:
     print(f"当 x = {point} 时，原函数的极值为 {value}")
+    if value > max_value:
+            max_value = value
+    if value < min_value:
+            min_value = value
+        
+print('f(x) 极大值是：', max_value)
+print('f(x) 极小值是：', min_value)

@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct  3 12:29:23 2025
+
+@author: xyrlix
+"""
+
 import numpy as np
 
 # 一维数组
