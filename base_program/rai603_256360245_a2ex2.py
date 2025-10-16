@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 13:13:40 2025
-
-@author: xyrlix
-"""
+# @file    : rai603_256360245_a2ex2.py
+# @brief   : calculate GPA and honor class
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 05:57:38
+# @copyright: Copyright (c) 2025 Seek Dao
 
 import sys
 

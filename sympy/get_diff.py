@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 10:16:13 2025
+# @file    : get_diff.py
+# @brief   : 求导数diff
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 01:45:47
+# @copyright: Copyright (c) 2025 Seek Dao
 
-@author: xyrlix
-"""
+
+# 用符号计算库 sympy
 
 
 # 求解函数的导数 diff

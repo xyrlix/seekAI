@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Oct  3 12:29:23 2025
+# @file    : numpy_tutorial_scraper.py
+# @brief   : numpy_tutorial_scraper
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-01 13:44:23
+# @copyright: Copyright (c) 2025 Seek Dao
 
-@author: xyrlix
-"""
+# 本脚本用于爬取菜鸟教程的 NumPy 教程，并保存到本地文件。
+# 请注意，本脚本仅供学习参考，不保证其合法性、准确性、完整性和有效性。
+# 使用本脚本的风险由用户自行承担。
 
 import requests
 from bs4 import BeautifulSoup

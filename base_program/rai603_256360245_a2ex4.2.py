@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 14:58:49 2025
-
-@author: xyrlix
-"""
+# @file    : rai603_256360245_a2ex4.2.py
+# @brief   : a2ex4.2
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 05:57:38
+# @copyright: Copyright (c) 2025 Seek Dao
 
 # 41
 for j in range(26, 0, -1):

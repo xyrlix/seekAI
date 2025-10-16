@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 14:28:56 2025
+# @file    : rai603_256360245_a2ex4.1.py
+# @brief   : a2ex4.1
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 05:57:38
+# @copyright: Copyright (c) 2025 Seek Dao
 
-@author: xyrlix
-"""
 
 # 17
 for i in range(1, 5):

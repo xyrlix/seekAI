@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  3 14:58:49 2025
-
-@author: xyrlix
-"""
-
+# @file    : least_square_method.py
+# @brief   : least square method
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 06:22:27
+# @copyright: Copyright (c) 2025 Seek Dao
 
 import numpy as np
 import matplotlib as plt

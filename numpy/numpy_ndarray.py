@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Oct  3 12:29:23 2025
-
-@author: xyrlix
-"""
+# @file    : numpy_ndarray.py
+# @brief   : numpy ndarray
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-13 12:55:37
+# @copyright: Copyright (c) 2025 Seek Dao
 
 import numpy as np
 

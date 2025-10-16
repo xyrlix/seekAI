@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Oct  3 12:29:23 2025
-
-@author: xyrlix
-"""
+# @file    : get_solve2.py
+# @brief   : 求解下面问题：
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 05:30:42
+# @copyright: Copyright (c) 2025 Seek Dao
 
 from sympy import *
 

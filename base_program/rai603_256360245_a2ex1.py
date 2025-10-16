@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 12:44:13 2025
+# @file    : rai603_256360245_a2ex1.py
+# @brief   : a2ex1
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 05:55:51
+# @copyright: Copyright (c) 2025 Seek Dao
 
-@author: xyrlix
-"""
 
 def fibonacci1(n):
     a, b = 0, 1

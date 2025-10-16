@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  2 10:16:13 2025
-
-@author: xyrlix
-"""
+# @file    : get_solve.py
+# @brief   : 求解函数的极值sovle
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-10-03 01:45:58
+# @copyright: Copyright (c) 2025 Seek Dao
 
 
 # 求解函数的极值sovle
