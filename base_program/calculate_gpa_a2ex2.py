@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @file    : rai603_256360245_a2ex2.py
+# @file    : a2ex2.py
 # @brief   : calculate GPA and honor class
 # @author  : xyrlix (xyrlix@outlook.com)
 # @date    : 2025-10-03 05:57:38

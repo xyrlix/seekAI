@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# @file    : rai603_256360245_a2ex1.py
+# @file    : a2ex1.py
 # @brief   : a2ex1
 # @author  : xyrlix (xyrlix@outlook.com)
 # @date    : 2025-10-03 05:55:51
