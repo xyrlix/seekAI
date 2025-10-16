@@ -43,3 +43,23 @@ print(a[..., 1])
 print(a[1, ...])
 # 每行第二列开始所有
 print(a[..., 1:])
+
+# 数组运算
+a = np.array([1, 2, 3, 4])
+b = np.array([10, 20, 30, 40])
+print(a + b) # 逐元素相加
+print(a - b) # 逐元素相减
+print(a * b) # 逐元素相乘
+print(a / b) # 逐元素相除
+
+# 矩阵运算
+a = np.array([[1, 2], [3, 4]])
+b = np.array([[5, 6], [7, 8]])
+print("矩阵a:\n", a) 
+print("矩阵b:\n", b)
+print("a + b = ", a + b) # 逐元素相加
+print("a - b =", a - b) # 逐元素相减
+print("a * b =", a * b) # 哈马达斯乘法
+print("a / b =", a / b) # 逐元素相除
+print("a.T = ", a.T) # 转置
+print("a @ b = ", a @ b) # 矩阵乘法
