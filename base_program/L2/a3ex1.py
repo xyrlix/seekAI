@@ -18,14 +18,14 @@ compound_surnames = ["万俟", "司马", "上官", "欧阳", "夏侯", "诸葛",
 
 
 def split_name1(name):
-    '''将中⽂姓名拆分为姓氏和名字，仅支持单姓'''
+    '''将中文姓名拆分为姓氏和名字，仅支持单姓'''
     if len(name) < 2:
         return name, ""
     return name[0:1], name[1:]
 
 
 def split_name2(name):
-    '''将中⽂姓名拆分为姓氏和名字，仅支持复姓'''
+    '''将中文姓名拆分为姓氏和名字，仅支持复姓'''
     if len(name) < 2:
         return name, ""
     # 检查是否为复姓
@@ -34,14 +34,14 @@ def split_name2(name):
         given_name = name[2:]
     else:
         # 如果不是复姓，按单姓处理
-        surname = name
-        given_name = name[1:]
+        print(f"!!!姓名 '{name}' 不是复姓，按单姓处理!!!")
+        surname, given_name = split_name1(name)
     
     return surname, given_name
 
 
 def split_name3(name):
-    '''将中⽂姓名拆分为姓氏和名字，支持单复姓, 支持女士姓名中包含丈夫姓氏并返回合并后的姓氏'''
+    '''将中文姓名拆分为姓氏和名字，支持单复姓, 支持女士姓名中包含丈夫姓氏并返回合并后的姓氏'''
     if len(name) < 2:
         return name, ""
     
@@ -56,9 +56,9 @@ def split_name3(name):
         surname = name[:2]
         given_name = name[2:]
     else:
-        # 按单姓处理
-        surname = name
-        given_name = name[1:]
+        # 如果不是复姓，按单姓处理
+        print(f"!!!姓名 '{name}' 不是复姓，按单姓处理!!!")
+        surname, given_name = split_name1(name)
     
     return surname, given_name
 
@@ -68,27 +68,27 @@ def test_split_name():
     print("拆分姓名函数测试开始")
     # 单姓测试
     name = "张三丰"
-    print("单姓测试: ", name)
-    first_name, last_name = split_name1(name)
-    print("姓: ", first_name)
-    print("名: ", last_name)
-    assert first_name == "张" and last_name == "三丰"
+    print(f"单姓测试: {name}")
+    surname, given_name = split_name1(name)
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
+    assert surname == "张" and given_name == "三丰"
 
     # 复姓测试
     name = "司马光"
-    print("复姓测试: ", name)
-    first_name, last_name = split_name2(name)
-    print("姓: ", first_name)
-    print("名: ", last_name)
-    assert first_name == "司马" and last_name == "光"
+    print(f"复姓测试: {name}")
+    surname, given_name = split_name2(name)
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
+    assert surname == "司马" and given_name == "光"
 
     # 单复姓测试
     name = "林郑月娥"
-    print("单复姓测试: ", name)
-    first_name, last_name = split_name3(name)
-    print("姓: ", first_name)
-    print("名: ", last_name)
-    assert first_name == "林郑" and last_name == "月娥"
+    print(f"单复姓测试: {name}")
+    surname, given_name = split_name3(name)
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
+    assert surname == "林郑" and given_name == "月娥"
     print("拆分姓名函数测试通过")
     print("==="*20)
 
@@ -96,24 +96,24 @@ def input_name():
     '''输入姓名'''
 
     name = input("输入你的中文姓名: ")
-    first_name, last_name = split_name1(name)
+    surname, given_name = split_name1(name)
     print("将中⽂姓名拆分为姓氏和名字，仅支持单姓，结果如下: ") 
-    print("姓: ", first_name)
-    print("名: ", last_name)
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
     print("---"*20)
 
     name = input("输入你的中文姓名: ")
-    first_name, last_name = split_name2(name)
-    print("将中⽂姓名拆分为姓氏和名字，仅支持复姓，结果如下: ")
-    print("姓: ", first_name)
-    print("名: ", last_name)
+    surname, given_name = split_name2(name)
+    print(f"将中⽂姓名拆分为姓氏和名字，仅支持复姓，结果如下: ")
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
     print("---"*20)
 
     name = input("输入你的中文姓名:")
-    first_name, last_name = split_name3(name)
-    print("将中⽂姓名拆分为姓氏和名字，支持单复姓, 支持女士姓名中包含丈夫姓氏并返回合并后的姓氏，结果如下: ")
-    print("姓: ", first_name)
-    print("名: ", last_name)
+    surname, given_name = split_name3(name)
+    print(f"将中⽂姓名拆分为姓氏和名字，支持单复姓, 支持女士姓名中包含丈夫姓氏并返回合并后的姓氏，结果如下: ")
+    print(f"姓: {surname}")
+    print(f"名: {given_name}")
     print("---"*20)
 
 if __name__ == "__main__":
