@@ -1,10 +1,19 @@
+# -*- coding: utf-8 -*-
+# @file    : polygon2_256360245.py
+# @brief   : 点类测试
+# @author  : xyrlix (xyrlix@outlook.com)
+# @date    : 2025-11-17 11:07:07
+# @copyright: Copyright (c) 2025 Seek Dao
+
+
 from polygon import Point3D, Point
 
+# 测试 Point3D 类
 if __name__ == "__main__":
-    stdid = '045'
+    stdid = '256360245'
     print(f"stdid: {stdid}")
-    a = int(stdid[2])
-    b = int(stdid[1])
+    a = int(stdid[-1])
+    b = int(stdid[-2])
     pt1 = Point(1, a)
     pt2 = Point(0, 0)
     pt3 = Point3D(1, 2, 0)
