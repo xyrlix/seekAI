@@ -5,7 +5,6 @@
 # @date    : 2025-11-17 11:07:07
 # @copyright: Copyright (c) 2025 Seek Dao
 
-
 from polygon import Point
 
 # 测试 Point 类

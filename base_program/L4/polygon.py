@@ -5,7 +5,6 @@
 # @date    : 2025-11-17 11:07:07
 # @copyright: Copyright (c) 2025 Seek Dao
 
-
 from abc import ABC, abstractmethod
 import math
 import numpy as np
@@ -82,6 +81,7 @@ class Polygon():
     @abstractmethod
     def area(self):
         raise NotImplementedError("area() must be implemented")
+
 
 class Triangle(Polygon):
     """class Triangle - 三角形"""
