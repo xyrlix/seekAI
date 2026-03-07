@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : numpy_ndarray.py
 # @brief   : numpy ndarray
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-13 12:55:37
 # @copyright: Copyright (c) 2025 Seek Dao
 

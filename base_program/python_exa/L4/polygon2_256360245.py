@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : polygon2_256360245.py
 # @brief   : 点类测试
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-11-17 11:07:07
 # @copyright: Copyright (c) 2025 Seek Dao
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : a2ex2.py
 # @brief   : calculate GPA and honor class
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 05:57:38
 # @copyright: Copyright (c) 2025 Seek Dao
 

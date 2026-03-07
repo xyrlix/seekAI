@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : get_solve.py
 # @brief   : 求解函数的极值sovle
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 01:45:58
 # @copyright: Copyright (c) 2025 Seek Dao
 

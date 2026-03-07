@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : get_solve2.py
 # @brief   : 求解下面问题：
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 05:30:42
 # @copyright: Copyright (c) 2025 Seek Dao
 

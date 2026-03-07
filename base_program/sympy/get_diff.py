@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : get_diff.py
 # @brief   : 求导数diff
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 01:45:47
 # @copyright: Copyright (c) 2025 Seek Dao
 

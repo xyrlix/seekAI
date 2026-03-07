@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : numpy_norm.py
 # @brief   : 求范数 norm
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-16 03:30:02
 # @copyright: Copyright (c) 2025 Seek Dao
 

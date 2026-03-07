@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @file    : a2ex4.2.py
 # @brief   : a2ex4.2
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 05:57:38
 # @copyright: Copyright (c) 2025 Seek Dao
 

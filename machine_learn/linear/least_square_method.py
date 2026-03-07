@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # @file    : least_square_method.py
 # @brief   : least square method
-# @author  : xyrlix (xyrlix@outlook.com)
+# @author  : xyrlix (xyrlix@qq.com)
 # @date    : 2025-10-03 06:22:27
 # @copyright: Copyright (c) 2025 Seek Dao
 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 
 # 1. 准备数据
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], dtype=np.float64)  # 天数
@@ -69,6 +69,15 @@ else:
 print("=" * 50)
 
 # 6. 可视化拟合结果（可选）
+# 设置字体：优先使用文泉驿微米黑，如果没有则尝试 Noto，最后尝试黑体
+plt.rcParams['font.sans-serif'] = [
+    'WenQuanYi Micro Hei', 
+    'Noto Sans CJK SC', 
+    'SimHei', 
+    'Arial'
+]
+plt.rcParams['axes.unicode_minus'] = False  # 解决负号 '-' 显示为方块的问题
+
 plt.figure(figsize=(10, 6))
 plt.scatter(x, y, color='blue', label='实际销量数据')
 plt.plot(x, y_pred1, color='red', label=f'模型1拟合线：y = {a:.4f}x + {b:.4f}')
@@ -79,4 +88,5 @@ plt.ylabel('销量（件）')
 plt.title('电商产品销量线性回归分析')
 plt.legend()
 plt.grid(True, alpha=0.3)
-plt.show()
+plt.savefig('least_square_method.png') 
+# plt.show()
