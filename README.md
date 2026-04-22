@@ -20,6 +20,7 @@
 - scikit-learn
 - tensorflow
 - keras
+- pytorch
 
 ## 机器学习
 - 监督学习
