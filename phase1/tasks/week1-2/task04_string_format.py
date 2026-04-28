@@ -25,22 +25,23 @@ subjects = ["数学", "英语", "Python"]
 scores = [95, 88, 92]
 
 # TODO: 1. 使用 f-string 输出：我叫XXX，今年XX岁
-# 在此处写代码
+print(f'我叫{name}, 今年{age}岁')
 
 
 
 # TODO: 2. 使用 .format() 输出相同的内容
-# 在此处写代码
+print('我叫{}, 今年{}岁'.format(name, age))
 
 
 
 # TODO: 3. 使用 % 格式化输出相同的内容
-# 在此处写代码
+print('我叫%s, 今年%d岁' % (name, age))
 
 
 
 # TODO: 4. 输出成绩（保留2位小数）
-# 在此处写代码
+for s in scores:
+    print(f'我的成绩: {s:.2f}')
 
 
 
@@ -51,3 +52,6 @@ scores = [95, 88, 92]
 # 英语    88
 # Python  92
 # 在此处写代码
+print('科目\t成绩')
+for i in range(len(subjects)):
+	print(f'{subjects[i]:<8}{scores[i]}')

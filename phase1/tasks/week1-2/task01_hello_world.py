@@ -15,12 +15,10 @@
 """
 
 # TODO: 1. 输出 "Hello, AI Expert!"
-# 在此处写代码
 print("Hello, AI Expert!")
 
 
 # TODO: 2. 定义两个变量 name 和 age，然后输出它们
-# 在此处写代码
 name = "qq"
 age = 30
 print(f"我叫{name}，今年{age}岁")
@@ -28,7 +26,6 @@ print(f"我叫{name}，今年{age}岁")
 
 
 # TODO: 3. 分别使用单引号、双引号、三引号输出字符串
-# 在此处写代码
 print("Hello, world!")
 print('Hello, AI Expert!')
 print("""Hello, 
@@ -38,6 +35,5 @@ something!""")
 
 
 # TODO: 4. 计算并输出：你出生了多少天（假设一年 365 天）
-# 在此处写代码
 days = age * 365
 print(f"我出生了{days}天")

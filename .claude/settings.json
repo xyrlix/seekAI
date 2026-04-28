@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write(.claude)",
+      "Bash(git *)",
+      "Bash(pip *)",
+      "Bash(python *)",
+      "Bash(ls *)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

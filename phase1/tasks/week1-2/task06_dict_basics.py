@@ -19,24 +19,36 @@
 """
 
 # TODO: 1. 创建一个学生信息字典
-# student = {"name": "小明", "age": 20, "score": 95}
+student = {"name": "小明", "age": 20, "gender": "male", "score": 95}
+print(student)
 
 
 
 # TODO: 2. 使用两种方式访问字典值（直接访问和 .get()）
-# 在此处写代码
+print(student['name'], student['age'])
+print(student.get('gender'), student.get('score'))
 
 
 
 # TODO: 3. 添加新键 "major"（专业），修改年龄为 21
-# 在此处写代码
+student['major'] = 'software engineer'
+student['age'] = 21
+print(student)
 
 
 
 # TODO: 4. 使用 del 删除 "age"，使用 .pop() 删除 "score"
-# 在此处写代码
+del student['age']
+print(student)
+student.pop('score')
+print(student)
 
 
 
 # TODO: 5. 遍历字典，输出所有键、所有值、所有键值对
-# 在此处写代码
+print(student.keys())
+print(student.values())
+print(student.items())
+
+for k,v in student.items():
+	print(f'{k}: {v}')
