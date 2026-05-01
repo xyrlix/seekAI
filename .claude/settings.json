@@ -3,11 +3,23 @@
     "allow": [
       "Read",
       "Write(.claude)",
+      "Write(progress.md)",
       "Bash(git *)",
       "Bash(pip *)",
       "Bash(python *)",
+      "Bash(pytest *)",
       "Bash(ls *)"
     ],
     "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PostToolUse": [{
+      "matcher": "Bash",
+      "hooks": [{
+        "type": "command",
+        "command": "echo 'Task completed'",
+        "if": "Bash(python *task*.py)"
+      }]
+    }]
   }
 }

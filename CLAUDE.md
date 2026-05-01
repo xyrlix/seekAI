@@ -37,9 +37,9 @@ pip install -e ".[phase1]"  # Python 基础依赖
 pip install -e ".[phase4]"  # LangChain 依赖
 ```
 
-## Claude Code 支持的 Skills
+## Claude Code Skills
 
-当用户请求时，智能调用以下技能：
+当用户请求时，智能调用以下内置技能：
 
 | 技能 | 触发场景 |
 |------|----------|
@@ -48,6 +48,54 @@ pip install -e ".[phase4]"  # LangChain 依赖
 | `/simplify` | 代码优化、重构建议 |
 | `/security-review` | 安全问题检查 |
 | `/claude-api` | Claude API / LangChain 相关问题 |
+| `/mmx-cli` | MiniMax 平台媒体生成和聊天 |
+
+## 自定义 Agents（10个）
+
+项目自定义 Agents 位于 `.claude/agents/`，用于专业领域辅助：
+
+| Agent | 用途 |
+|-------|------|
+| ai-expert-trainer | 训练系统核心调度 |
+| ai-theory-teach | 理论知识讲解 |
+| ai-code-review | 代码审查评估 |
+| ai-env-setup | 环境配置调试 |
+| ai-project-scaffold | 项目脚手架生成 |
+| ai-learning-tracker | 学习进度追踪 |
+| ai-bug-debugger | 错误排查调试 |
+| ai-test-automation | 自动化测试执行 |
+| ai-data-science-assistant | 数据科学助手 |
+| ai-llm-developer | LLM 应用开发助手 |
+
+## MCP Servers 配置
+
+MCP (Model Context Protocol) 提供额外的工具能力：
+
+```json
+"mcpServers": {
+  "filesystem": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "F:/output/seekAI"]
+  }
+}
+```
+
+## Hooks 配置
+
+自动化任务触发：
+
+```json
+"hooks": {
+  "PostToolUse": [{
+    "matcher": "Bash",
+    "hooks": [{
+      "type": "command",
+      "command": "echo 'Task completed'",
+      "if": "Bash(python *task*.py)"
+    }]
+  }]
+}
+```
 
 ## 项目架构
 
@@ -58,7 +106,11 @@ pip install -e ".[phase4]"  # LangChain 依赖
 ├── phase2/     # 机器学习
 ├── phase3/     # 深度学习
 ├── phase4/     # 大模型应用（LangChain RAG/Agent）
-└── .trae/skills/  # Trae 训练技能模块
+├── tests/      # 测试文件
+└── .claude/    # Claude Code 配置
+    ├── agents/  # 10个自定义 Agents
+    ├── memory/  # 记忆系统
+    └── settings.json  # 权限和 Hooks 配置
 ```
 
 ### Phase 1 任务目录
@@ -92,6 +144,7 @@ LangChain 示例需要配置 `.env` 文件：
 
 ## 关键约定
 
-1. **任务完成后**：告诉我说"请审查 taskX 的代码"
+1. **任务完成后**：告诉我说"请审查 taskX 的代码"，我会同步更新 progress.md
 2. **代码质量标准**：总分 >= 7/10 才能通过 Phase 1
 3. **LangChain 版本**：使用 langchain-core >= 0.3.0（重要组件从 langchain_core 导入）
+4. **提交规范**：每次提交包含代码和更新的进度文档
