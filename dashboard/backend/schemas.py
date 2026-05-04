@@ -61,10 +61,11 @@ class StatsResponse(BaseModel):
     achievements_count: int
 
 
-class Achievement(BaseModel):
-    """成就模型"""
+class Ability(BaseModel):
+    """能力模型"""
     id: int
     name: str
-    description: str
     icon: str
-    unlocked_at: Optional[str] = None
+    description: str
+    level: int  # 0-100
+    phase: int  # 对应Phase

@@ -2,16 +2,17 @@
 评分 API 路由
 """
 
-from fastapi import APIRouter
-from schemas import ReviewRequest, ReviewResponse
+from fastapi import APIRouter, Depends
+from dashboard.backend.schemas import ReviewRequest, ReviewResponse
+from dashboard.backend.auth.dependencies import get_current_user
 
 router = APIRouter(prefix="/api/review", tags=["评分"])
 
 
 @router.post("", response_model=ReviewResponse)
-async def submit_review(review: ReviewRequest):
+async def submit_review(review: ReviewRequest, current_user: dict = Depends(get_current_user)):
     """提交代码评分"""
-    from database import update_task_score
+    from dashboard.backend.database import update_task_score
 
     # 计算总分
     total = (

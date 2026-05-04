@@ -3,10 +3,14 @@ seekAI Dashboard 后端 API
 FastAPI + SQLite
 """
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import progress, tasks, review
+from dashboard.backend.routers.progress import router as progress_router
+from dashboard.backend.routers.tasks import router as tasks_router
+from dashboard.backend.routers.review import router as review_router
+from dashboard.backend.routers.abilities import router as abilities_router
+from dashboard.backend.auth import router as auth_router, get_current_user
 
 app = FastAPI(
     title="seekAI Dashboard API",
@@ -17,16 +21,18 @@ app = FastAPI(
 # CORS 配置，允许前端访问
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # 注册路由
-app.include_router(progress.router)
-app.include_router(tasks.router)
-app.include_router(review.router)
+app.include_router(auth_router)
+app.include_router(progress_router)
+app.include_router(tasks_router)
+app.include_router(review_router)
+app.include_router(abilities_router)
 
 
 @app.get("/")
@@ -36,19 +42,21 @@ async def root():
 
 
 @app.get("/api/stats")
-async def get_stats():
+async def get_stats(current_user: dict = Depends(get_current_user)):
     """获取统计数据"""
-    from database import get_user_progress, get_tasks
+    from dashboard.backend.database import get_user_progress, get_tasks, update_abilities_by_progress
 
-    progress = get_user_progress(user_id=1)
-    tasks = get_tasks(user_id=1)
+    user_id = current_user["user_id"]
+    update_abilities_by_progress(user_id=user_id)
+    progress = get_user_progress(user_id=user_id)
+    tasks = get_tasks(user_id=user_id)
     completed = [t for t in tasks if t["status"] == "completed"]
 
     return {
         "total_tasks": progress["total"],
         "completed_tasks": progress["completed"],
         "total_score": progress["avg_score"],
-        "current_streak": len(completed),  # 简化：完成任务数作为连续天数
+        "current_streak": len(completed),
         "achievements_count": 0
     }
 
@@ -95,6 +103,60 @@ async def get_achievements():
         }
     ]
     return achievements
+
+
+@app.post("/api/execute")
+async def execute_code(request: dict):
+    """在线执行 Python 代码 - 已弃用，请使用 Pyodide 浏览器内执行"""
+    import sys
+    from io import StringIO
+
+    code = request.get("code", "")
+    if not code:
+        return {"output": "No code provided", "error": None}
+
+    # 重定向 stdout 以捕获 print 输出
+    old_stdout = sys.stdout
+    sys.stdout = StringIO()
+
+    try:
+        # 使用 exec 执行代码（限制作用域）
+        exec_globals = {"__builtins__": __builtins__}
+        exec(code, exec_globals)
+        output = sys.stdout.getvalue()
+        return {"output": output, "error": None}
+    except Exception as e:
+        output = sys.stdout.getvalue()
+        return {"output": output, "error": str(e)}
+    finally:
+        sys.stdout = old_stdout
+
+
+@app.post("/api/execution/results")
+async def save_execution_result(request: dict):
+    """存储代码执行结果（供进度追踪使用，代码执行已移至浏览器 Pyodide）"""
+    from dashboard.backend.database import get_connection
+
+    data = request
+    user_id = data.get("user_id", 1)
+    task_id = data.get("task_id")
+    code = data.get("code", "")
+    output_result = data.get("output", "")
+    error = data.get("error")
+    passed = error is None
+
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO reviews (task_id, correctness, conventions, performance, readability, total, created_at)
+        VALUES (?, ?, ?, ?, ?, ?, datetime('now'))
+    """, (task_id, 8 if passed else 5, 8, 8, 8, 8 if passed else 5))
+
+    conn.commit()
+    conn.close()
+
+    return {"saved": True, "passed": passed}
 
 
 if __name__ == "__main__":

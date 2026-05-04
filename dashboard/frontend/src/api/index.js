@@ -40,4 +40,19 @@ export function getAchievements() {
   return api.get('/achievements').then(res => res.data)
 }
 
+// 获取任务内容
+export function getTaskContent(taskId) {
+  return api.get(`/tasks/content/${taskId}`).then(res => res.data)
+}
+
+// 执行代码
+export function executeCode(code) {
+  return api.post('/execute', { code }).then(res => res.data)
+}
+
+// 获取能力列表
+export function getAbilities() {
+  return api.get('/abilities').then(res => res.data)
+}
+
 export default api
